@@ -1,10 +1,10 @@
 import {
   Container,
-  BkgdImage,
+  CardBkgdImage,
   GoitIcon,
   CenterLine,
-  AvatarCircle,
-  AvatarCircleBkgd,
+  AvatarFrame,
+  AvatarContainer,
   Avatar,
   TextTweets,
   TextFollowers,
@@ -13,18 +13,23 @@ import {
 
 import bkgdImage from "components/assets/picture1.png";
 import goitIcon from "components/assets/goit-icon.svg";
-import avatarCircle from "components/assets/avatar-circle.svg";
-import avatar from "components/assets/avatar-Hansel.png";
+import avatarFrame from "components/assets/avatar-frame.png";
+import avatarDefault from "components/assets/avatar-Hansel.png";
 
 export const Card = ({ onBtnClick, followersNumber, isClicked }) => {
+  const a = 1;
+  const imgUrl =
+    "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/1171.jpg";
   return (
     <Container>
       <GoitIcon src={goitIcon} />
-      <BkgdImage src={bkgdImage} />
+      <CardBkgdImage src={bkgdImage} />
       <CenterLine />
-      <AvatarCircle src={avatarCircle} />
-      <AvatarCircleBkgd />
-      <Avatar src={avatar} alt="avatar" />
+      <AvatarFrame src={avatarFrame} />
+      <AvatarContainer>
+        <Avatar src={a ? imgUrl : avatarDefault} alt="" />
+      </AvatarContainer>
+
       <TextTweets>777 Tweets</TextTweets>
       <TextFollowers>
         {followersNumber.toLocaleString()} Followers

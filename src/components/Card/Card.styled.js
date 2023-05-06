@@ -20,7 +20,7 @@ export const Container = styled.div`
   color: #ebd8ff;
 `;
 
-export const BkgdImage = styled.img`
+export const CardBkgdImage = styled.img`
   /* outline: 1px solid tomato; */
 `;
 export const GoitIcon = styled.img`
@@ -33,35 +33,38 @@ export const CenterLine = styled.div`
   position: absolute;
   height: 8px;
   width: 380px;
-  margin-top: 14px;
-  margin-left: -36px;
+  top: 210px;
+  left: 0px;
   background: #ebd8ff;
   box-shadow: 0px 3.43693px 3.43693px rgba(0, 0, 0, 0.06),
     inset 0px -1.71846px 3.43693px #ae7be3, inset 0px 3.43693px 2.5777px #fbf8ff;
 `;
-export const AvatarCircle = styled.img`
+export const AvatarFrame = styled.img`
   position: absolute;
-  margin-top: -22px;
-  margin-left: 114px;
-  z-index: 2;
+  top: 174px;
+  left: 150px;
+  /* z-index: 2; */
 `;
-export const AvatarCircleBkgd = styled.div`
+export const AvatarContainer = styled.div`
   position: absolute;
-  margin-top: -22px;
-  margin-left: 119px;
+  top: 182px;
+  left: 163px;
 
-  height: 80px;
-  width: 80px;
+  height: 64px;
+  width: 64px;
   border-radius: 50%;
-  background-color: #5736a3;
-  /* outline: 1px solid tomato; */
+  /* background-color: #5736a3; */
+
+  overflow: hidden;
 `;
 
 export const Avatar = styled.img`
   /* outline: 1px solid tomato; */
-  position: absolute;
-  margin-top: -13px;
-  margin-left: 128px;
+  /* position: absolute; */
+  /* top: 0px;
+  left: 0px; */
+  /* width: 100%;
+  height: 100%; */
 `;
 
 export const TextTweets = styled.p`
