@@ -12,6 +12,12 @@ export const Container = styled.div`
   );
   border-radius: 20px;
   padding: 28px 36px 36px;
+
+  font-family: Montserrat;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.2;
+  color: #ebd8ff;
 `;
 
 export const BkgdImage = styled.img`
@@ -49,4 +55,47 @@ export const AvatarCircleBkgd = styled.div`
   border-radius: 50%;
   background-color: #5736a3;
   /* outline: 1px solid tomato; */
+`;
+
+export const Avatar = styled.img`
+  /* outline: 1px solid tomato; */
+  position: absolute;
+  margin-top: -13px;
+  margin-left: 128px;
+`;
+
+export const TextTweets = styled.p`
+  /* outline: 1px solid tomato; */
+  margin-top: 88px;
+  text-transform: uppercase;
+  text-align: center;
+`;
+
+export const TextFollowers = styled.p`
+  /* outline: 1px solid tomato; */
+  margin-top: 16px;
+  text-transform: uppercase;
+  text-align: center;
+`;
+
+export const Btn = styled.button`
+  /* outline: 1px solid tomato; */
+  display: block;
+
+  margin-top: 26px;
+  margin-right: auto;
+  margin-left: auto;
+
+  border: none;
+  padding: 14px 56px;
+  border-radius: 10px;
+  color: #373737;
+  box-shadow: 0px 3.43693px 3.43693px rgba(0, 0, 0, 0.25);
+  background-color: ${({ isClicked }) => (isClicked ? "#5CD3A8" : "#EBD8FF")};
+
+  text-transform: uppercase;
+  text-transform: uppercase;
+  font-size: 18px;
+  line-height: 1.22;
+  font-weight: 600;
 `;
