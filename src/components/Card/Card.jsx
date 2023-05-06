@@ -26,7 +26,9 @@ export const Card = ({ onBtnClick, followersNumber, isClicked }) => {
       <AvatarCircleBkgd />
       <Avatar src={avatar} alt="avatar" />
       <TextTweets>777 Tweets</TextTweets>
-      <TextFollowers>{followersNumber} Followers</TextFollowers>
+      <TextFollowers>
+        {followersNumber.toLocaleString()} Followers
+      </TextFollowers>
       <Btn onClick={() => onBtnClick()} isClicked={isClicked}>
         {isClicked ? "Following" : "Follow"}
       </Btn>
