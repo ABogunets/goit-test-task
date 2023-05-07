@@ -1,5 +1,8 @@
+import { useState, useEffect, useRef } from "react";
+import { load, save } from "utils/storage";
 import {
   Container,
+  CardWrapper,
   CardBkgdImage,
   GoitIcon,
   CenterLine,
@@ -16,27 +19,58 @@ import goitIcon from "components/assets/goit-icon.svg";
 import avatarFrame from "components/assets/avatar-frame.png";
 import avatarDefault from "components/assets/avatar-Hansel.png";
 
-export const Card = ({ onBtnClick, followersNumber, isClicked }) => {
-  const a = 1;
-  const imgUrl =
-    "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/1171.jpg";
+export const Card = ({ card }) => {
+  const { id, user, tweets, followers, avatar } = card;
+
+  const [value, setValue] = useState(followers);
+  const [isClicked, setIsClicked] = useState(false);
+
+  const handleClick = () => {
+    if (isClicked === false) {
+      setValue((prevValue) => prevValue + 1);
+      setIsClicked(true);
+    } else {
+      setValue((prevValue) => prevValue - 1);
+      setIsClicked(false);
+    }
+  };
+
+  // ------LOCALstorage
+  const isFirstRender = useRef(true);
+
+  useEffect(() => {
+    const savedData = load(id);
+    if (savedData) {
+      setValue(savedData.value);
+      setIsClicked(savedData.isClicked);
+    }
+  }, [id]);
+
+  useEffect(() => {
+    if (isFirstRender.current) {
+      isFirstRender.current = false;
+      return;
+    }
+    save(id, { value, isClicked });
+  }, [id, value, isClicked]);
+  // ---
+
   return (
     <Container>
-      <GoitIcon src={goitIcon} />
-      <CardBkgdImage src={bkgdImage} />
-      <CenterLine />
-      <AvatarFrame src={avatarFrame} />
-      <AvatarContainer>
-        <Avatar src={a ? imgUrl : avatarDefault} alt="" />
-      </AvatarContainer>
-
-      <TextTweets>777 Tweets</TextTweets>
-      <TextFollowers>
-        {followersNumber.toLocaleString()} Followers
-      </TextFollowers>
-      <Btn onClick={() => onBtnClick()} isClicked={isClicked}>
-        {isClicked ? "Following" : "Follow"}
-      </Btn>
+      <CardWrapper>
+        <GoitIcon src={goitIcon} />
+        <CardBkgdImage src={bkgdImage} />
+        <CenterLine />
+        <AvatarFrame src={avatarFrame} />
+        <AvatarContainer>
+          <Avatar src={user ? avatar : avatarDefault} alt="" />
+        </AvatarContainer>
+        <TextTweets>{tweets.toLocaleString()} tweets</TextTweets>
+        <TextFollowers>{value.toLocaleString()} Followers</TextFollowers>
+        <Btn onClick={handleClick} isClicked={isClicked}>
+          {isClicked ? "Following" : "Follow"}
+        </Btn>
+      </CardWrapper>
     </Container>
   );
 };

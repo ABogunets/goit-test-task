@@ -1,6 +1,11 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
+export const Container = styled.li`
+  /* outline: 1px solid tomato; */
+  margin: 0;
+`;
+
+export const CardWrapper = styled.div`
   position: relative;
   height: 460px;
   width: 380px;
@@ -26,8 +31,8 @@ export const CardBkgdImage = styled.img`
 export const GoitIcon = styled.img`
   /* outline: 1px solid tomato; */
   position: absolute;
-  margin-top: -8px;
-  margin-left: -16px;
+  top: 20px;
+  left: 20px;
 `;
 export const CenterLine = styled.div`
   position: absolute;
@@ -96,7 +101,6 @@ export const Btn = styled.button`
   box-shadow: 0px 3.43693px 3.43693px rgba(0, 0, 0, 0.25);
   background-color: ${({ isClicked }) => (isClicked ? "#5CD3A8" : "#EBD8FF")};
 
-  text-transform: uppercase;
   text-transform: uppercase;
   font-size: 18px;
   line-height: 1.22;

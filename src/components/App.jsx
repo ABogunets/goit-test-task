@@ -1,28 +1,25 @@
-import { useState, useEffect, useRef } from "react";
-import { Card } from "components/Card/Card";
-import { Container } from "components/App.styled";
-import { load, save } from "utils/storage";
+import { useState, useEffect } from "react";
+import { CardList } from "components/CardList/CardList";
+import { Container, Button } from "components/App.styled";
+import { fetchUsers } from "components/services/users-api.js";
+import { Loader } from "components/Loader/Loader";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+// import { load, save } from "utils/storage";
 
 const App = () => {
-  const [value, setValue] = useState(1500);
-  const [isClicked, setIsClicked] = useState(false);
+  const [page, setPage] = useState(1);
+  const [isLoading, setIsLoading] = useState(false);
+  const [usersSet, setUsersSet] = useState([]);
 
-  const handleClick = () => {
-    if (isClicked === false) {
-      setValue((prevValue) => prevValue + 1);
-      setIsClicked(true);
-    } else {
-      setValue((prevValue) => prevValue - 1);
-      setIsClicked(false);
-    }
-  };
-  // ---------LOCAL STORAGE
+  // ------LOCALstorage
   // const isFirstRender = useRef(true);
 
   // useEffect(() => {
-  //   const savedContacts = load("contacts");
-  //   if (savedContacts) {
-  //     setContacts(savedContacts);
+  //   const savedPage = load("currentPage");
+  //   if (savedPage > 1) {
+  //     setPage(savedPage);
   //   }
   // }, []);
 
@@ -31,38 +28,51 @@ const App = () => {
   //     isFirstRender.current = false;
   //     return;
   //   }
-  //   save("contacts", contacts);
-  // }, [contacts]);
+  //   save("page", page);
+  // }, [page]);
+  // ---
 
   useEffect(() => {
-    const savedFolowersNumber = load("folowersNumber");
-    const savedisClickedState = load("isClicked");
+    setIsLoading(true);
+    const getUsers = async () => {
+      try {
+        const usersData = await fetchUsers(page);
+        setUsersSet((prevUsersSet) =>
+          page === 1 ? usersData : [...prevUsersSet, ...usersData]
+        );
+        if (usersData.length === 0 && page > 1) {
+          toast.info(`Sorry, you've reached the end of the collection!`);
+        }
+        if (usersData.length === 0 && page === 1) {
+          toast.info(`Sorry, there are no users in the collection!`);
+        }
+      } catch (err) {
+        console.log(err.message);
+        toast.error(
+          `Sorry, something went wrong with the server, please try again.`
+        );
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    getUsers();
+  }, [page]);
 
-    console.log("savedFolowersNumber", savedFolowersNumber);
-    if (savedFolowersNumber) {
-      setValue(savedFolowersNumber);
-      setIsClicked(savedisClickedState);
-    }
-  }, []);
-
-  useEffect(() => {
-    // if (isFirstRender.current) {
-    //   isFirstRender.current = false;
-    //   return;
-    // }
-    save("folowersNumber", value);
-    save("isClicked", isClicked);
-  }, [value, isClicked]);
-
-  //-------------------
+  const loadMore = () => {
+    setPage((page) => page + 1);
+  };
 
   return (
     <Container>
-      <Card
-        onBtnClick={handleClick}
-        followersNumber={value}
-        isClicked={isClicked}
-      />
+      {!isLoading && usersSet.length > 0 && <CardList usersData={usersSet} />}
+      {isLoading && <Loader />}
+      {/* <Loader /> */}
+      {!isLoading && usersSet.length > 0 && (
+        <Button onClick={loadMore} type="button">
+          Load more
+        </Button>
+      )}
+      <ToastContainer autoClose={3000} />
     </Container>
   );
 };
