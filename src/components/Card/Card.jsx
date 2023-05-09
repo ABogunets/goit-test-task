@@ -24,6 +24,7 @@ export const Card = ({ card }) => {
 
   const [value, setValue] = useState(followers);
   const [isClicked, setIsClicked] = useState(false);
+  // const [idNumber, setIdNumber] = useState("");
 
   const handleClick = () => {
     if (isClicked === false) {

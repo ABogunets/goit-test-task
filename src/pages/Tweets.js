@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { CardList } from "components/CardList/CardList";
-import { Container, Button } from "components/App.styledOLD";
+import { Container, Button } from "./Tweets.styled";
 import { fetchUsers } from "components/services/users-api.js";
 import { Loader } from "components/Loader/Loader";
 import { ToastContainer, toast } from "react-toastify";
@@ -12,6 +12,7 @@ const Tweets = () => {
   const [page, setPage] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
   const [usersSet, setUsersSet] = useState([]);
+  // const [filterValue, setFilterValue] = useState("");
 
   // ------LOCALstorage
   // const isFirstRender = useRef(true);
@@ -64,9 +65,8 @@ const Tweets = () => {
 
   return (
     <Container>
-      {!isLoading && usersSet.length > 0 && <CardList usersData={usersSet} />}
+      {!isLoading && usersSet.length > 0 && <CardList usersSet={usersSet} />}
       {isLoading && <Loader />}
-      {/* <Loader /> */}
       {!isLoading && usersSet.length > 0 && (
         <Button onClick={loadMore} type="button">
           Load more

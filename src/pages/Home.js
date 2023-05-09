@@ -1,13 +1,11 @@
+import { Container, Title } from "./Home.styled";
+import backgroundImage from "components/assets/background-image.jpg";
+
 const Home = () => {
   return (
-    <div
-      style={{
-        fontSize: "32px",
-        color: "#4B2A99",
-      }}
-    >
-      WELCOME TO TWEETS COLLECTION!
-    </div>
+    <Container>
+      <Title> WELCOME TO TWEETS COLLECTION!</Title>
+    </Container>
   );
 };
 
