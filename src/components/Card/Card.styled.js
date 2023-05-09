@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
 export const Container = styled.li`
-  margin: 0;
+  margin-left: auto;
+  margin-right: auto;
 `;
 
 export const CardWrapper = styled.div`

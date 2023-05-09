@@ -66,8 +66,8 @@ export const Card = ({ card }) => {
         <AvatarContainer>
           <Avatar src={user ? avatar : avatarDefault} alt="" />
         </AvatarContainer>
-        <TextTweets>{tweets.toLocaleString()}tweets</TextTweets>
-        <TextFollowers>{value.toLocaleString()}followers</TextFollowers>
+        <TextTweets>{tweets.toLocaleString()} tweets</TextTweets>
+        <TextFollowers>{value.toLocaleString()} followers</TextFollowers>
         <Btn onClick={handleClick} isClicked={isClicked}>
           {isClicked ? "Following" : "Follow"}
         </Btn>

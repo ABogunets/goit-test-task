@@ -8,7 +8,7 @@ export const getFilteredUsers = (filterValue, usersSet) => {
   switch (filterValue) {
     case "followings":
       return usersSet.filter((item) => followingsTweetsIds.includes(item.id));
-    case "followers":
+    case "follow":
       console.log("follow");
       return usersSet.filter((item) => !followingsTweetsIds.includes(item.id));
     default:

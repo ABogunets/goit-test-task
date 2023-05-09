@@ -6,31 +6,10 @@ import { Loader } from "components/Loader/Loader";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-// import { load, save } from "utils/storage";
-
 const Tweets = () => {
   const [page, setPage] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
   const [usersSet, setUsersSet] = useState([]);
-
-  // ------LOCALstorage
-  // const isFirstRender = useRef(true);
-
-  // useEffect(() => {
-  //   const savedPage = load("currentPage");
-  //   if (savedPage > 1) {
-  //     setPage(savedPage);
-  //   }
-  // }, []);
-
-  // useEffect(() => {
-  //   if (isFirstRender.current) {
-  //     isFirstRender.current = false;
-  //     return;
-  //   }
-  //   save("page", page);
-  // }, [page]);
-  // ---
 
   useEffect(() => {
     setIsLoading(true);
