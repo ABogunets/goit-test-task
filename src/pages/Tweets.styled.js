@@ -1,17 +1,12 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-gap: 16px;
-
-  padding: 20px 20px;
-  /* padding-bottom: 24px; */
+  padding: 20px 30px;
   background-color: #90c6f2;
 `;
 
 export const Button = styled.button`
-  display: inline-block;
+  display: block;
 
   padding: 8px 10px;
   margin: 20px auto 0px auto;
@@ -32,7 +27,6 @@ export const Button = styled.button`
   box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2),
     0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
 
-  /* background-color: #8578da; */
   transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover,

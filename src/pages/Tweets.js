@@ -12,7 +12,6 @@ const Tweets = () => {
   const [page, setPage] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
   const [usersSet, setUsersSet] = useState([]);
-  // const [filterValue, setFilterValue] = useState("");
 
   // ------LOCALstorage
   // const isFirstRender = useRef(true);

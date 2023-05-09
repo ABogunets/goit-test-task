@@ -1,5 +1,5 @@
-// import PropTypes from "prop-types";
-// import { nanoid } from 'nanoid';
+import PropTypes from "prop-types";
+
 import {
   FilterWrapper,
   Label,
@@ -22,7 +22,6 @@ export const Filter = ({ onChangeFilter }) => {
   );
 };
 
-// Filter.propTypes = {
-//   value: PropTypes.string,
-//   onChangeFilter: PropTypes.func,
-// };
+Filter.propTypes = {
+  onChangeFilter: PropTypes.func,
+};

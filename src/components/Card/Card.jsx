@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import { useState, useEffect, useRef } from "react";
 import { load, save } from "utils/storage";
 import {
@@ -14,7 +15,7 @@ import {
   Btn,
 } from "components/Card/Card.styled";
 
-import bkgdImage from "components/assets/picture1.png";
+import bkgdImage from "components/assets/card-bkgd-image.png";
 import goitIcon from "components/assets/goit-icon.svg";
 import avatarFrame from "components/assets/avatar-frame.png";
 import avatarDefault from "components/assets/avatar-Hansel.png";
@@ -24,7 +25,6 @@ export const Card = ({ card }) => {
 
   const [value, setValue] = useState(followers);
   const [isClicked, setIsClicked] = useState(false);
-  // const [idNumber, setIdNumber] = useState("");
 
   const handleClick = () => {
     if (isClicked === false) {
@@ -66,12 +66,16 @@ export const Card = ({ card }) => {
         <AvatarContainer>
           <Avatar src={user ? avatar : avatarDefault} alt="" />
         </AvatarContainer>
-        <TextTweets>{tweets.toLocaleString()} tweets</TextTweets>
-        <TextFollowers>{value.toLocaleString()} Followers</TextFollowers>
+        <TextTweets>{tweets.toLocaleString()}tweets</TextTweets>
+        <TextFollowers>{value.toLocaleString()}followers</TextFollowers>
         <Btn onClick={handleClick} isClicked={isClicked}>
           {isClicked ? "Following" : "Follow"}
         </Btn>
       </CardWrapper>
     </Container>
   );
+};
+
+Card.propTypes = {
+  card: PropTypes.object,
 };

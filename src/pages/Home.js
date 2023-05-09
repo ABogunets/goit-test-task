@@ -1,10 +1,9 @@
 import { Container, Title } from "./Home.styled";
-import backgroundImage from "components/assets/background-image.jpg";
 
 const Home = () => {
   return (
     <Container>
-      <Title> WELCOME TO TWEETS COLLECTION!</Title>
+      <Title> welcome to tweets collection!</Title>
     </Container>
   );
 };

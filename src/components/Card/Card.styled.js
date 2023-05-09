@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const Container = styled.li`
-  /* outline: 1px solid tomato; */
   margin: 0;
 `;
 
@@ -18,18 +17,14 @@ export const CardWrapper = styled.div`
   border-radius: 20px;
   padding: 28px 36px 36px;
 
-  font-family: Montserrat;
   font-weight: 500;
   font-size: 20px;
   line-height: 1.2;
   color: #ebd8ff;
 `;
 
-export const CardBkgdImage = styled.img`
-  /* outline: 1px solid tomato; */
-`;
+export const CardBkgdImage = styled.img``;
 export const GoitIcon = styled.img`
-  /* outline: 1px solid tomato; */
   position: absolute;
   top: 20px;
   left: 20px;
@@ -48,7 +43,6 @@ export const AvatarFrame = styled.img`
   position: absolute;
   top: 174px;
   left: 150px;
-  /* z-index: 2; */
 `;
 export const AvatarContainer = styled.div`
   position: absolute;
@@ -58,36 +52,25 @@ export const AvatarContainer = styled.div`
   height: 64px;
   width: 64px;
   border-radius: 50%;
-  /* background-color: #5736a3; */
 
   overflow: hidden;
 `;
 
-export const Avatar = styled.img`
-  /* outline: 1px solid tomato; */
-  /* position: absolute; */
-  /* top: 0px;
-  left: 0px; */
-  /* width: 100%;
-  height: 100%; */
-`;
+export const Avatar = styled.img``;
 
 export const TextTweets = styled.p`
-  /* outline: 1px solid tomato; */
   margin-top: 88px;
   text-transform: uppercase;
   text-align: center;
 `;
 
 export const TextFollowers = styled.p`
-  /* outline: 1px solid tomato; */
   margin-top: 16px;
   text-transform: uppercase;
   text-align: center;
 `;
 
 export const Btn = styled.button`
-  /* outline: 1px solid tomato; */
   display: block;
 
   margin-top: 26px;

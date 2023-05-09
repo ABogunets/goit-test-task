@@ -14,4 +14,5 @@ export const Title = styled.h1`
   text-align: center;
   font-size: 40px;
   color: #4b2a99;
+  text-transform: uppercase;
 `;
